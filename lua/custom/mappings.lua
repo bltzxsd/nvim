@@ -13,10 +13,10 @@ M.general = {
 			"formatting",
 		},
 		["<leader>ih"] = {
-			function(_, bufnr)
-				vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled(bufnr))
+			function(_, _)
+				vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled())
 			end,
-			"disable inlay hint",
+			"toggle inlay hints",
 		},
 		["<leader>qf"] = {
 			function()
@@ -27,13 +27,13 @@ M.general = {
 					apply = true,
 				}
 			end,
-			"Apply the suggested quick-fix",
+			"apply the suggested quick-fix",
 		},
 		["<leader>cc"] = {
 			function()
 				vim.lsp.buf.hover()
 			end,
-			"Shows the documentation of element below cursor",
+			"show documentation of element below cursor",
 		},
 	},
 	v = {
