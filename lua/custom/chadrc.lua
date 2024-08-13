@@ -5,12 +5,21 @@ local M = {}
 local highlights = require "custom.highlights"
 
 M.ui = {
-	theme = "gruvchad",
-	-- monochrome
-	theme_toggle = { "gruvchad", "blossom_light" },
-
+	theme = "catppuccin",
+	theme_toggle = { "catppuccin", "blossom_light" },
 	hl_override = highlights.override,
 	hl_add = highlights.add,
+
+	statusline = {
+		theme = "minimal",
+	},
+	cheatsheet = {
+		theme = "grid",
+	},
+	cmp = {
+		icons = true,
+		style = "flat_dark",
+	},
 }
 
 M.plugins = "custom.plugins"

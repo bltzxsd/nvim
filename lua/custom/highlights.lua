@@ -9,11 +9,16 @@ M.override = {
 	Comment = {
 		italic = true,
 	},
+
+	CmpDocBorder = {
+		fg = "white",
+	},
 }
 
 ---@type HLTable
 M.add = {
 	NvimTreeOpenedFolderName = { fg = "green", bold = true },
+	Comment = { fg = "grey_fg", italic = true },
 }
 
 return M

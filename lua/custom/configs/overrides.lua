@@ -23,6 +23,21 @@ M.treesitter = {
 
 M.mason = {
 	ensure_installed = {
+		-- 󰄳I  "clangd
+		-- 󰄳I  "clang-format
+		-- 󰄳I  prettier
+		-- 󰄳I  stylua
+		-- 󰄳I  shfmt
+		-- 󰄳I  arduino-language-server
+		-- 󰄳I  asmfmt
+		-- 󰄳I  cpplint
+		-- 󰄳I  glsl_analyzer
+		-- 󰄳I  isort
+		-- 󰄳I  lua-language-server
+		-- 󰄳I  ruff
+		-- 󰄳I  ruff-lsp
+		-- 󰄳I  wgsl-analyzer
+		-- 󰄳I  yaml-language-server
 		-- lua stuff
 		"stylua",
 

@@ -18,18 +18,7 @@ M.general = {
 			end,
 			"toggle inlay hints",
 		},
-		["<leader>qf"] = {
-			function()
-				vim.lsp.buf.code_action {
-					filter = function(a)
-						return a.isPreferred
-					end,
-					apply = true,
-				}
-			end,
-			"apply the suggested quick-fix",
-		},
-		["<leader>cc"] = {
+		["<leader><S-d>"] = {
 			function()
 				vim.lsp.buf.hover()
 			end,
