@@ -1,11 +1,19 @@
 local autocmd = vim.api.nvim_create_autocmd
+local alacritty_mod = require "custom.configure_alacritty"
 
 -- Auto resize panes when resizing nvim window
 -- autocmd("VimResized", {
 --   pattern = "*",
 --   command = "tabdo wincmd =",
 -- })
---
+
+-- Modify padding when Neovim starts
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		alacritty_mod.modify_alacritty_config()
+	end,
+})
+
 if vim.fn.has "wsl" == 1 then
 	if vim.fn.executable "wl-copy" == 0 then
 		print "wl-clipboard not found, clipboard integration won't work"
@@ -37,3 +45,10 @@ autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
 if not vim.lsp.inlay_hint.is_enabled() then
 	vim.lsp.inlay_hint.enable(true)
 end
+
+-- Restore padding when Neovim exits
+vim.api.nvim_create_autocmd("VimLeavePre", {
+	callback = function()
+		alacritty_mod.restore_alacritty_config()
+	end,
+})
