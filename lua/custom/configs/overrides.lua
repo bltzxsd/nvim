@@ -15,30 +15,29 @@ M.treesitter = {
 	},
 	indent = {
 		enable = true,
-		-- disable = {
-		--   "python"
-		-- },
 	},
 }
 
 M.mason = {
 	ensure_installed = {
-		-- 󰄳I  "clangd
-		-- 󰄳I  "clang-format
-		-- 󰄳I  prettier
-		-- 󰄳I  stylua
-		-- 󰄳I  shfmt
-		-- 󰄳I  arduino-language-server
-		-- 󰄳I  asmfmt
-		-- 󰄳I  cpplint
-		-- 󰄳I  glsl_analyzer
-		-- 󰄳I  isort
-		-- 󰄳I  lua-language-server
-		-- 󰄳I  ruff
-		-- 󰄳I  ruff-lsp
-		-- 󰄳I  wgsl-analyzer
-		-- 󰄳I  yaml-language-server
+		-- hardware tuff
+		"asmfmt",
+		"arduino-language-server",
+
+		-- config stuff
+		"yaml-language-server",
+
+		-- shader stuff
+		"wgsl-analyzer",
+		"glsl_analyzer",
+
+		-- python stuff
+		"ruff",
+		"ruff-lsp",
+		"isort",
+
 		-- lua stuff
+		"lua-language-server",
 		"stylua",
 
 		-- web dev stuff
@@ -47,6 +46,7 @@ M.mason = {
 		-- c/cpp stuff
 		"clangd",
 		"clang-format",
+		"cpplint",
 
 		-- shell stuff
 		"shfmt",

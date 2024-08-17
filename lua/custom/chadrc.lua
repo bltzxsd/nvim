@@ -13,12 +13,18 @@ M.ui = {
 	statusline = {
 		theme = "minimal",
 	},
+
 	cheatsheet = {
 		theme = "grid",
 	},
+
 	cmp = {
 		icons = true,
 		style = "flat_dark",
+	},
+
+	nvdash = {
+		load_on_startup = true,
 	},
 }
 

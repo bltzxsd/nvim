@@ -1,16 +1,21 @@
 local autocmd = vim.api.nvim_create_autocmd
-local alacritty_mod = require "custom.configure_alacritty"
+local alacritty_mod = require "custom.scripts.configure_alacritty"
+local original_dir = vim.fn.getcwd()
 
 -- Auto resize panes when resizing nvim window
 -- autocmd("VimResized", {
 --   pattern = "*",
 --   command = "tabdo wincmd =",
 -- })
-
 -- Modify padding when Neovim starts
-vim.api.nvim_create_autocmd("VimEnter", {
+
+autocmd("VimEnter", {
 	callback = function()
 		alacritty_mod.modify_alacritty_config()
+		local target_dir = vim.fn.argv(0)
+		if target_dir and vim.fn.isdirectory(target_dir) == 1 then
+			vim.cmd("cd " .. target_dir)
+		end
 	end,
 })
 
@@ -47,8 +52,10 @@ if not vim.lsp.inlay_hint.is_enabled() then
 end
 
 -- Restore padding when Neovim exits
-vim.api.nvim_create_autocmd("VimLeavePre", {
+autocmd("VimLeavePre", {
 	callback = function()
 		alacritty_mod.restore_alacritty_config()
+
+		vim.cmd("cd " .. original_dir)
 	end,
 })

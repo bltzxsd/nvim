@@ -21,6 +21,16 @@ local plugins = {
 	-- },
 
 	{
+		"windwp/nvim-ts-autotag",
+		opts = {
+			enable_close = true,
+			enable_rename = true,
+			enable_close_on_slash = true,
+		},
+		lazy = false, -- the plugin is already lazy
+	},
+
+	{
 		"neovim/nvim-lspconfig",
 		opts = { inlay_hints = { enabled = true } },
 		config = function()
@@ -73,7 +83,7 @@ local plugins = {
 		"mrcjkb/rustaceanvim",
 		version = "^5",
 		ft = { "rust" },
-		lazy = false,
+		lazy = false, -- the plugin is already lazy
 	},
 }
 
