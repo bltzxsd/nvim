@@ -19,6 +19,7 @@ local plugins = {
 	-- 		}
 	-- 	end,
 	-- },
+	{ "rose-pine/neovim", name = "rose-pine" },
 
 	{
 		"windwp/nvim-ts-autotag",

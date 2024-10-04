@@ -11,7 +11,6 @@ local original_dir = vim.fn.getcwd()
 
 autocmd("VimEnter", {
 	callback = function()
-		alacritty_mod.modify_alacritty_config()
 		local target_dir = vim.fn.argv(0)
 		if target_dir and vim.fn.isdirectory(target_dir) == 1 then
 			vim.cmd("cd " .. target_dir)
@@ -19,12 +18,12 @@ autocmd("VimEnter", {
 	end,
 })
 
-if vim.fn.has "wsl" == 1 then
+if (vim.fn.has "wsl") or (vim.fn.has "macunix") then
 	if vim.fn.executable "wl-copy" == 0 then
 		print "wl-clipboard not found, clipboard integration won't work"
 	else
 		vim.g.clipboard = {
-			name = "wl-clipboard (wsl)",
+			name = "wl-clipboard",
 			copy = {
 				["+"] = "wl-copy --foreground --type text/plain",
 				["*"] = "wl-copy --foreground --primary --type text/plain",
@@ -54,8 +53,6 @@ end
 -- Restore padding when Neovim exits
 autocmd("VimLeavePre", {
 	callback = function()
-		alacritty_mod.restore_alacritty_config()
-
 		vim.cmd("cd " .. original_dir)
 	end,
 })
