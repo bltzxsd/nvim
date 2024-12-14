@@ -18,7 +18,7 @@ M.general = {
 			end,
 			"toggle inlay hints",
 		},
-		["<leader><S-d>"] = {
+		["<leader>sd"] = {
 			function()
 				vim.lsp.buf.hover()
 			end,

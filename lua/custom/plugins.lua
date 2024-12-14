@@ -28,7 +28,13 @@ local plugins = {
 
 	{
 		"neovim/nvim-lspconfig",
-		opts = { inlay_hints = { enabled = true } },
+		opts = {
+			inlay_hints = { enabled = true },
+			diagnostics = {
+				underline = true,
+				virtual_text = false,
+			},
+		},
 		config = function()
 			require "plugins.configs.lspconfig"
 			require "custom.configs.lspconfig"
@@ -69,11 +75,6 @@ local plugins = {
 		end,
 		lazy = false,
 	},
-
-	-- {
-	-- 	"rcarriga/nvim-notify",
-	-- 	lazy = false,
-	-- },
 
 	{
 		"mrcjkb/rustaceanvim",

@@ -20,6 +20,7 @@ local options = {
 		lua			= {  "stylua"	 },
 		rust		= {  "rustfmt"	 },
 		sh			= {  "shfmt"	 },
+		haskell     = {  "fourmolu"  }
 	},
 	log_level = vim.log.levels.ERROR,
 	notify_on_error = true,

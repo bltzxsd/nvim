@@ -1,13 +1,11 @@
 local autocmd = vim.api.nvim_create_autocmd
-local alacritty_mod = require "custom.scripts.configure_alacritty"
 local original_dir = vim.fn.getcwd()
 
 -- Auto resize panes when resizing nvim window
--- autocmd("VimResized", {
---   pattern = "*",
---   command = "tabdo wincmd =",
--- })
--- Modify padding when Neovim starts
+autocmd("VimResized", {
+	pattern = "*",
+	command = "tabdo wincmd =",
+})
 
 autocmd("VimEnter", {
 	callback = function()
@@ -56,3 +54,24 @@ autocmd("VimLeavePre", {
 		vim.cmd("cd " .. original_dir)
 	end,
 })
+
+require("lsp_lines").setup()
+
+autocmd({ "BufEnter", "FocusGained", "CursorHold" }, {
+	callback = function()
+		vim.diagnostic.config {
+			virtual_lines = true,
+			-- virtual_text = false,
+			virtual_text = false,
+			underline = true,
+		}
+	end,
+})
+
+autocmd("FileType", {
+	pattern = "haskell",
+	callback = function()
+		vim.opt_local.expandtab = true
+	end,
+})
+-- https://github.com/folke/lazy.nvim/issues/620
